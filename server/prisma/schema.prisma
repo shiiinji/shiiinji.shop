@@ -9,3 +9,19 @@ datasource db {
 generator client {
   provider = "prisma-client-js"
 }
+
+model Shop {
+  id    Int     @default(autoincrement()) @id
+  email String  @unique
+  name  String?
+  products Product[]
+}
+
+model Product {
+  id        Int      @default(autoincrement()) @id
+  title     String
+  content   String?
+  published Boolean? @default(false)
+  shop    Shop?    @relation(fields: [shopId], references: [id])
+  shopId  Int?
+}
