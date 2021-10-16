@@ -1,19 +1,20 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
+import { ShopWhereUniqueArgs } from './args/product-where-unique.args';
 import { Shop } from './shop.entity';
 
-@Resolver((of) => Shop)
+@Resolver(() => Shop)
 export class ShopResolver {
   constructor(private prisma: PrismaService) {}
 
-  @Query((returns) => Shop)
+  @Query(() => Shop, { nullable: true })
   async shop(
     @Args()
-    shopWhereUniqueInput: Prisma.ShopWhereUniqueInput,
+    shopWhereUniqueArgs: ShopWhereUniqueArgs,
   ): Promise<Shop | null> {
     return this.prisma.shop.findUnique({
-      where: shopWhereUniqueInput,
+      where: shopWhereUniqueArgs,
     });
   }
 
@@ -39,7 +40,10 @@ export class ShopResolver {
   }
 
   @Mutation(() => Shop)
-  async createShop(@Args('data') data: Prisma.ShopCreateInput): Promise<Shop> {
+  async createShop(
+    // @Args('data')
+    data: Prisma.ShopCreateInput,
+  ): Promise<Shop> {
     return this.prisma.shop.create({
       data,
     });
@@ -47,8 +51,10 @@ export class ShopResolver {
 
   @Mutation(() => Shop)
   async updateShop(
-    @Args('where') where: Prisma.ShopWhereUniqueInput,
-    @Args('data') data: Prisma.ShopUpdateInput,
+    // @Args('where')
+    where: Prisma.ShopWhereUniqueInput,
+    // @Args('data')
+    data: Prisma.ShopUpdateInput,
   ): Promise<Shop> {
     return this.prisma.shop.update({
       data,
@@ -58,7 +64,8 @@ export class ShopResolver {
 
   @Mutation(() => Shop)
   async deleteUser(
-    @Args('where') where: Prisma.ShopWhereUniqueInput,
+    // @Args('where')
+    where: Prisma.ShopWhereUniqueInput,
   ): Promise<Shop> {
     return this.prisma.shop.delete({
       where,
