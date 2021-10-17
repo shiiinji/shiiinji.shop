@@ -60,8 +60,8 @@ export class ShopResolver {
 
   @Mutation(() => Shop)
   async deleteUser(
-    // @Args('where')
-    where: Prisma.ShopWhereUniqueInput,
+    @Args('where')
+    where: ShopWhereUniqueInput,
   ): Promise<Shop> {
     return this.prisma.shop.delete({
       where,
