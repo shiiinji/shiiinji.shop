@@ -4,5 +4,4 @@ import { Prisma } from '@prisma/client';
 @InputType()
 export class ShopWhereUniqueInput implements Prisma.ShopWhereUniqueInput {
   id: string;
-  email: string;
 }
