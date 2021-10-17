@@ -1,7 +1,7 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
-import { ShopWhereUniqueArgs } from './args/product-where-unique.args';
+import { ShopWhereUniqueArgs } from './args/shop-where-unique.args';
 import { Shop } from './shop.entity';
 
 @Resolver(() => Shop)
@@ -20,7 +20,7 @@ export class ShopResolver {
 
   @Query((returns) => [Shop])
   async shops(
-    // @Args('params')
+    @Args('params')
     params: {
       skip?: number;
       take?: number;
