@@ -1,0 +1,58 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type Shop {
+  id: ID!
+
+  """Identifies the date and time when the object was created."""
+  createdAt: DateTime!
+
+  """Identifies the date and time when the object was last updated."""
+  updatedAt: DateTime!
+  email: String!
+  name: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
+type Query {
+  shop(args: ShopWhereUniqueInput!): Shop
+  shops(args: ShopWhereParamsInput!): [Shop!]!
+}
+
+input ShopWhereUniqueInput {
+  id: String!
+}
+
+input ShopWhereParamsInput {
+  skip: Float
+  take: Float
+  cursor: ShopWhereUniqueInput
+  where: ShopWhereUniqueInput
+}
+
+type Mutation {
+  createShop(data: ShopCreateInput!): Shop!
+  updateShop(data: ShopUpdateInput!, where: ShopWhereUniqueInput!): Shop!
+  deleteUser(where: ShopWhereUniqueInput!): Shop!
+}
+
+input ShopCreateInput {
+  id: String!
+  email: String!
+  name: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+
+input ShopUpdateInput {
+  id: String!
+  email: String!
+  name: String!
+  createdAt: DateTime
+  updatedAt: DateTime
+}
