@@ -1,7 +1,8 @@
-import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
+import { Resolver, Query, Args, InputType, Mutation } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
-import { ShopWhereUniqueArgs } from './args/shop-where-unique.args';
+import { ShopWhereUniqueInput } from './input/shop-where-unique.input';
+import { ShopWhereParamsInput } from './input/shops-where-params.input';
 import { Shop } from './shop.entity';
 
 @Resolver(() => Shop)
@@ -10,8 +11,8 @@ export class ShopResolver {
 
   @Query(() => Shop, { nullable: true })
   async shop(
-    @Args()
-    shopWhereUniqueArgs: ShopWhereUniqueArgs,
+    @Args('args')
+    shopWhereUniqueArgs: ShopWhereUniqueInput,
   ): Promise<Shop | null> {
     return this.prisma.shop.findUnique({
       where: shopWhereUniqueArgs,
@@ -20,22 +21,15 @@ export class ShopResolver {
 
   @Query((returns) => [Shop])
   async shops(
-    @Args('params')
-    params: {
-      skip?: number;
-      take?: number;
-      cursor?: Prisma.ShopWhereUniqueInput;
-      where?: Prisma.ShopWhereInput;
-      orderBy?: Prisma.ShopOrderByWithRelationInput;
-    },
+    @Args('args')
+    shopWhereParamsArgs: ShopWhereParamsInput,
   ): Promise<Shop[]> {
-    const { skip, take, cursor, where, orderBy } = params;
+    const { skip, take, cursor, where } = shopWhereParamsArgs;
     return this.prisma.shop.findMany({
       skip,
       take,
       cursor,
       where,
-      orderBy,
     });
   }
 
