@@ -1,6 +1,7 @@
 import { Resolver, Query, Args, InputType, Mutation } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
+import { ShopCreateInput } from './input/shop-create.input';
 import { ShopWhereUniqueInput } from './input/shop-where-unique.input';
 import { ShopWhereParamsInput } from './input/shops-where-params.input';
 import { Shop } from './shop.entity';
@@ -35,8 +36,8 @@ export class ShopResolver {
 
   @Mutation(() => Shop)
   async createShop(
-    // @Args('data')
-    data: Prisma.ShopCreateInput,
+    @Args('data')
+    data: ShopCreateInput,
   ): Promise<Shop> {
     return this.prisma.shop.create({
       data,
