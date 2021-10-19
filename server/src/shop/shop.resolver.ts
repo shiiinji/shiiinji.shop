@@ -1,5 +1,4 @@
 import { Resolver, Query, Args, InputType, Mutation } from '@nestjs/graphql';
-import { Prisma } from '@prisma/client';
 import { PrismaService } from '../prisma.service';
 import { ShopCreateInput } from './input/shop-create.input';
 import { ShopUpdateInput } from './input/shop-update.input';

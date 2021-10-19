@@ -7,5 +7,5 @@ export class Shop extends BaseEntity {
   email: string;
 
   @Field(() => String, { nullable: true })
-  name: string | null;
+  name: string;
 }
