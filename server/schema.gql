@@ -2,6 +2,25 @@
 # THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
 # ------------------------------------------------------
 
+type Product {
+  id: ID!
+
+  """Identifies the date and time when the object was created."""
+  createdAt: DateTime!
+
+  """Identifies the date and time when the object was last updated."""
+  updatedAt: DateTime!
+  title: String!
+  content: String
+  published: Boolean
+  shopId: String
+}
+
+"""
+A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
+"""
+scalar DateTime
+
 type Shop {
   id: ID!
 
@@ -14,14 +33,22 @@ type Shop {
   name: String
 }
 
-"""
-A date-time string at UTC, such as 2019-12-03T09:54:33Z, compliant with the date-time format.
-"""
-scalar DateTime
-
 type Query {
+  product(args: ProductWhereUniqueInput!): Product
+  products(args: ProductsWhereParamsInput!): [Product!]!
   shop(args: ShopWhereUniqueInput!): Shop
   shops(args: ShopWhereParamsInput!): [Shop!]!
+}
+
+input ProductWhereUniqueInput {
+  id: String!
+}
+
+input ProductsWhereParamsInput {
+  skip: Float
+  take: Float
+  cursor: ProductWhereUniqueInput
+  where: ProductWhereUniqueInput
 }
 
 input ShopWhereUniqueInput {
@@ -36,9 +63,32 @@ input ShopWhereParamsInput {
 }
 
 type Mutation {
+  createProduct(data: ProductCreateInput!): Product!
+  updateProduct(data: ProductUpdateInput!, where: ProductWhereUniqueInput!): Product!
+  deleteProduct(where: ProductWhereUniqueInput!): Product!
   createShop(data: ShopCreateInput!): Shop!
   updateShop(data: ShopUpdateInput!, where: ShopWhereUniqueInput!): Shop!
   deleteUser(where: ShopWhereUniqueInput!): Shop!
+}
+
+input ProductCreateInput {
+  id: String
+  title: String!
+  content: String
+  published: Boolean!
+  createdAt: DateTime
+  updatedAt: DateTime
+  shopId: String!
+}
+
+input ProductUpdateInput {
+  id: String
+  title: String!
+  content: String
+  published: Boolean!
+  createdAt: DateTime
+  updatedAt: DateTime
+  shopId: String!
 }
 
 input ShopCreateInput {
