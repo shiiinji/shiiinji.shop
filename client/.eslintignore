@@ -1,0 +1,15 @@
+package.json
+node_modules
+yarn.lock
+public
+next.config.js
+services/github
+services/graphcms
+.eslintrc.js
+.env.local
+jest.config.js
+coverage
+setupTests.js
+cypress
+sentry.client.config.js
+sentry.server.config.js
