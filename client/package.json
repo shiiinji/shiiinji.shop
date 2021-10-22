@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'; stylelint './**/*.{css,jsx,tsx}';",
-    "lint:fix": "eslint --fix './**/*.{js,jsx,ts,tsx}'; stylelint --fix './**/*.{css,jsx,tsx}';",
+    "lint:fix": "eslint --fix './**/*.{js,jsx,ts,tsx}'",
     "prettier": "prettier --write ./*"
   },
   "dependencies": {
