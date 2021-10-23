@@ -8,11 +8,11 @@ steps:
         'gcr.io/shiiinji-shop/shiiinji-shop-serve:$COMMIT_SHA',
         '.',
       ]
-    dir: 'client'
+    dir: 'server'
   # Push the container image to Container Registry
   - name: 'gcr.io/cloud-builders/docker'
     args: ['push', 'gcr.io/shiiinji-shop/shiiinji-shop-serve:$COMMIT_SHA']
-    dir: 'client'
+    dir: 'server'
   # Deploy container image to Cloud Run
   - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
     entrypoint: gcloud
