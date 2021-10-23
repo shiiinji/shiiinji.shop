@@ -1,0 +1,33 @@
+steps:
+  # Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '-t',
+        'gcr.io/shiiinji-shop/shiiinji-shop-serve:$COMMIT_SHA',
+        '.',
+      ]
+    dir: 'client'
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args: ['push', 'gcr.io/shiiinji-shop/shiiinji-shop-serve:$COMMIT_SHA']
+    dir: 'client'
+  # Deploy container image to Cloud Run
+  - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
+    entrypoint: gcloud
+    args:
+      [
+        'run',
+        'deploy',
+        'shiiinji-shop-serve',
+        '--image',
+        'gcr.io/shiiinji-shop/shiiinji-shop-serve:$COMMIT_SHA',
+        '--region',
+        'asia-northeast1',
+        '--platform',
+        'managed',
+      ]
+images:
+  - gcr.io/shiiinji-shop/shiiinji-shop-serve:$COMMIT_SHA
+timeout: 3600s
