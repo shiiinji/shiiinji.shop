@@ -22,7 +22,7 @@ export default function Home(props: Props) {
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
   ctx.res.setHeader(
     'Cache-Control',
-    'public, s-maxage=10, stale-while-revalidate=180',
+    'public, s-maxage=120, stale-while-revalidate=600',
   )
 
   const { data } = await client
