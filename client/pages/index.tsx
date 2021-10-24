@@ -1,6 +1,38 @@
 import React from 'react'
+import { GetServerSidePropsContext } from 'next'
 import { Header } from '@components/common/Header'
+import { client } from '@graphql/client'
+import { GetProductsDocument, GetProductsQuery } from '@services/shop/client'
 
-export default function Home() {
-  return <Header />
+type Props = {
+  products: GetProductsQuery['products']
+}
+
+export default function Home(props: Props) {
+  return (
+    <>
+      <Header />
+      {props.products.map((product) => (
+        <p>{product.title}</p>
+      ))}
+    </>
+  )
+}
+
+export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  const { data } = await client
+    .query<GetProductsQuery>(GetProductsDocument, {
+      args: {
+        where: {
+          published: true,
+        },
+      },
+    })
+    .toPromise()
+
+  return {
+    props: {
+      products: data?.products ?? [],
+    },
+  }
 }
