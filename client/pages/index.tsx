@@ -24,6 +24,7 @@ export async function getServerSideProps(ctx: GetServerSidePropsContext) {
     'Cache-Control',
     'public, s-maxage=120, stale-while-revalidate=600',
   )
+  ctx.res.setHeader('Surrogate-Key', 'TOP_KEY')
 
   const { data } = await client
     .query<GetProductsQuery>(GetProductsDocument, {
