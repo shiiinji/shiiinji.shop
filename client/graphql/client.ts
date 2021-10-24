@@ -6,5 +6,5 @@ export const client = createClient({
       'https://shiiinji-shop-server-aysssbazza-an.a.run.app/graphql',
   ),
   suspense: true,
-  requestPolicy: 'cache-first',
+  requestPolicy: 'network-only',
 })
