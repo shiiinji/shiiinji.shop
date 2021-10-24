@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint './**/*.{js,jsx,ts,tsx}'; stylelint './**/*.{css,jsx,tsx}';",
     "lint:fix": "eslint --fix './**/*.{js,jsx,ts,tsx}'",
-    "prettier": "prettier --write ./*"
+    "prettier": "prettier --write ./*",
+    "codegen-shop": "graphql-codegen --config shop-codegen.yml"
   },
   "dependencies": {
     "@chakra-ui/icons": "^1.0.16",
@@ -17,11 +18,17 @@
     "@emotion/react": "^11",
     "@emotion/styled": "^11",
     "framer-motion": "^4",
+    "graphql": "^15.6.1",
     "next": "11.1.2",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "urql": "^2.0.5"
   },
   "devDependencies": {
+    "@graphql-codegen/cli": "^2.2.1",
+    "@graphql-codegen/typescript": "^2.2.4",
+    "@graphql-codegen/typescript-operations": "^2.1.8",
+    "@graphql-codegen/typescript-urql": "^3.2.2",
     "@types/eslint-plugin-prettier": "^3.1.0",
     "@types/react": "^17.0.31",
     "@typescript-eslint/eslint-plugin": "^5.1.0",
