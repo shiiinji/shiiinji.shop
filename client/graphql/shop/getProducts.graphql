@@ -1,0 +1,15 @@
+fragment Product on Product {
+  id
+  title
+  content
+  published
+  shopId
+  createdAt
+  updatedAt
+}
+
+query getProducts($args: ProductsWhereParamsInput!) {
+  products(args: $args) {
+    ...Product
+  }
+}
