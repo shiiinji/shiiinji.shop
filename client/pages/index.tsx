@@ -20,6 +20,11 @@ export default function Home(props: Props) {
 }
 
 export async function getServerSideProps(ctx: GetServerSidePropsContext) {
+  ctx.res.setHeader(
+    'Cache-Control',
+    'public, s-maxage=10, stale-while-revalidate=3600',
+  )
+
   const { data } = await client
     .query<GetProductsQuery>(GetProductsDocument, {
       args: {
