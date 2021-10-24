@@ -47,8 +47,18 @@ input ProductWhereUniqueInput {
 input ProductsWhereParamsInput {
   skip: Float
   take: Float
-  cursor: ProductWhereUniqueInput
-  where: ProductWhereUniqueInput
+  cursor: ProductsWhereInput
+  where: ProductsWhereInput
+}
+
+input ProductsWhereInput {
+  id: String
+  title: String
+  content: String
+  published: Boolean
+  createdAt: DateTime
+  updatedAt: DateTime
+  shopId: String
 }
 
 input ShopWhereUniqueInput {
@@ -58,8 +68,16 @@ input ShopWhereUniqueInput {
 input ShopWhereParamsInput {
   skip: Float
   take: Float
-  cursor: ShopWhereUniqueInput
-  where: ShopWhereUniqueInput
+  cursor: ShopWhereInput
+  where: ShopWhereInput
+}
+
+input ShopWhereInput {
+  id: String
+  email: String
+  name: String
+  createdAt: DateTime
+  updatedAt: DateTime
 }
 
 type Mutation {

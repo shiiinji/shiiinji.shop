@@ -1,10 +1,18 @@
 import { InputType } from '@nestjs/graphql';
-import { ShopWhereUniqueInput } from './shop-where-unique.input';
+
+@InputType()
+export class ShopWhereInput {
+  id?: string;
+  email?: string;
+  name?: string;
+  createdAt?: Date;
+  updatedAt?: Date;
+}
 
 @InputType()
 export class ShopWhereParamsInput {
   skip?: number;
   take?: number;
-  cursor?: ShopWhereUniqueInput;
-  where?: ShopWhereUniqueInput;
+  cursor?: ShopWhereInput;
+  where?: ShopWhereInput;
 }
