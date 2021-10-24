@@ -1,0 +1,12 @@
+# github-shop-codegen.yml
+schema: http://localhost:8080/graphql
+documents: ./graphql/shop/*.graphql
+overwrite: true
+generates:
+  ./services/shop/client.ts:
+    plugins:
+      - typescript
+      - typescript-operations
+      - typescript-urql
+    config:
+      withHooks: true
