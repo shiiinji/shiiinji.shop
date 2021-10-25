@@ -101,12 +101,12 @@ input ProductCreateInput {
 
 input ProductUpdateInput {
   id: String
-  title: String!
+  title: String
   content: String
-  published: Boolean!
+  published: Boolean
   createdAt: DateTime
   updatedAt: DateTime
-  shopId: String!
+  shopId: String
 }
 
 input ShopCreateInput {

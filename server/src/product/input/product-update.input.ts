@@ -2,12 +2,12 @@ import { InputType } from '@nestjs/graphql';
 import { Prisma } from '@prisma/client';
 
 @InputType()
-export class ProductUpdateInput implements Prisma.ProductUncheckedCreateInput {
+export class ProductUpdateInput implements Prisma.ProductWhereUniqueInput {
   id?: string;
-  title: string;
+  title?: string;
   content?: string;
-  published: boolean;
+  published?: boolean;
   createdAt?: Date;
   updatedAt?: Date;
-  shopId: string;
+  shopId?: string;
 }
