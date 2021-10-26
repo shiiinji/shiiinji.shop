@@ -19,9 +19,9 @@
     "@emotion/styled": "^11",
     "framer-motion": "^4",
     "graphql": "^15.6.1",
-    "next": "11.1.2",
-    "react": "17.0.2",
-    "react-dom": "17.0.2",
+    "next": "^12.0.0",
+    "react": "^18.0.0-alpha-4298ddbc5-20211023",
+    "react-dom": "^18.0.0-alpha-4298ddbc5-20211023",
     "urql": "^2.0.5"
   },
   "devDependencies": {
