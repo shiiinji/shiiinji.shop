@@ -1,10 +1,10 @@
 import { Resolver, Query, Args, Mutation } from '@nestjs/graphql';
 import { EventEmitter2 } from '@nestjs/event-emitter';
 import { ProductEvent } from './events/product.event';
-import { ProductCreateInput } from './input/product-create.input';
-import { ProductUpdateInput } from './input/product-update.input';
-import { ProductsWhereParamsInput } from './input/products-where-params.input';
-import { ProductWhereUniqueInput } from './input/product-where-unique.input';
+import { ProductCreateInput } from './dto/product-create.input';
+import { ProductUpdateInput } from './dto/product-update.input';
+import { ProductsWhereParamsInput } from './dto/products-where-params.input';
+import { ProductWhereUniqueInput } from './dto/product-where-unique.input';
 import { Product } from './product.entity';
 import { PrismaService } from '../prisma.service';
 

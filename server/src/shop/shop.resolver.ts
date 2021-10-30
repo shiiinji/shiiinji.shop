@@ -1,9 +1,9 @@
 import { Resolver, Query, Args, InputType, Mutation } from '@nestjs/graphql';
 import { PrismaService } from '../prisma.service';
-import { ShopCreateInput } from './input/shop-create.input';
-import { ShopUpdateInput } from './input/shop-update.input';
-import { ShopWhereUniqueInput } from './input/shop-where-unique.input';
-import { ShopWhereParamsInput } from './input/shops-where-params.input';
+import { ShopCreateInput } from './dto/shop-create.input';
+import { ShopUpdateInput } from './dto/shop-update.input';
+import { ShopWhereUniqueInput } from './dto/shop-where-unique.input';
+import { ShopWhereParamsInput } from './dto/shops-where-params.input';
 import { Shop } from './shop.entity';
 
 @Resolver(() => Shop)
