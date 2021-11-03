@@ -25,6 +25,7 @@ model Product {
   updatedAt DateTime @updatedAt
   title     String
   content   String?
+  imageUrl   String?
   published Boolean? @default(false)
   shop    Shop?    @relation(fields: [shopId], references: [id])
   shopId  String?

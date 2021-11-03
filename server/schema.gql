@@ -12,6 +12,7 @@ type Product {
   updatedAt: DateTime!
   title: String!
   content: String
+  imageUrl: String
   published: Boolean
   shopId: String
 }
@@ -93,6 +94,7 @@ input ProductCreateInput {
   id: String
   title: String!
   content: String
+  imageUrl: String
   published: Boolean!
   createdAt: DateTime
   updatedAt: DateTime
@@ -103,6 +105,7 @@ input ProductUpdateInput {
   id: String
   title: String
   content: String
+  imageUrl: String
   published: Boolean
   createdAt: DateTime
   updatedAt: DateTime

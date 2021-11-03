@@ -9,6 +9,9 @@ export class Product extends BaseEntity {
   @Field(() => String, { nullable: true })
   content: string;
 
+  @Field(() => String, { nullable: true })
+  imageUrl: string;
+
   @Field(() => Boolean, { nullable: true })
   published: boolean;
 

@@ -6,6 +6,7 @@ export class ProductUpdateInput implements Prisma.ProductWhereUniqueInput {
   id?: string;
   title?: string;
   content?: string;
+  imageUrl?: string;
   published?: boolean;
   createdAt?: Date;
   updatedAt?: Date;
