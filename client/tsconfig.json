@@ -2,7 +2,11 @@
   "compilerOptions": {
     "module": "esnext",
     "target": "esnext",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "sourceMap": true,
     "noEmit": true,
@@ -19,7 +23,9 @@
     "noUnusedParameters": true,
     "removeComments": false,
     "preserveConstEnums": true,
-    "types": ["node"],
+    "types": [
+      "node"
+    ],
     "skipLibCheck": true,
     "strict": true,
     "pretty": true,
@@ -28,16 +34,39 @@
     "isolatedModules": true,
     "baseUrl": "./",
     "paths": {
-      "@components/*": ["components/*"],
-      "@graphql/*": ["graphql/*"],
-      "@hooks/*": ["hooks/*"],
-      "@reducers/*": ["reducers/*"],
-      "@services/*": ["services/*"],
-      "@store/*": ["store/*"],
-      "@styles/*": ["styles/*"],
-      "@utils/*": ["utils/*"]
-    }
+      "@components/*": [
+        "components/*"
+      ],
+      "@graphql/*": [
+        "graphql/*"
+      ],
+      "@hooks/*": [
+        "hooks/*"
+      ],
+      "@reducers/*": [
+        "reducers/*"
+      ],
+      "@services/*": [
+        "services/*"
+      ],
+      "@store/*": [
+        "store/*"
+      ],
+      "@styles/*": [
+        "styles/*"
+      ],
+      "@utils/*": [
+        "utils/*"
+      ]
+    },
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }
