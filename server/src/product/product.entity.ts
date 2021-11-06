@@ -10,6 +10,12 @@ export class Product extends BaseEntity {
   content: string;
 
   @Field(() => String, { nullable: true })
+  category: string;
+
+  @Field(() => Number, { nullable: true })
+  price: number;
+
+  @Field(() => String, { nullable: true })
   imageUrl: string;
 
   @Field(() => Boolean, { nullable: true })

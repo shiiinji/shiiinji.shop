@@ -2,6 +2,8 @@ fragment Product on Product {
   id
   title
   content
+  category
+  price
   imageUrl
   published
   shopId

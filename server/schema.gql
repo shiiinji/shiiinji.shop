@@ -12,6 +12,8 @@ type Product {
   updatedAt: DateTime!
   title: String!
   content: String
+  category: String
+  price: Float
   imageUrl: String
   published: Boolean
   shopId: String
@@ -56,6 +58,8 @@ input ProductsWhereInput {
   id: String
   title: String
   content: String
+  category: String
+  price: Float
   published: Boolean
   createdAt: DateTime
   updatedAt: DateTime
@@ -94,6 +98,8 @@ input ProductCreateInput {
   id: String
   title: String!
   content: String
+  category: String
+  price: Float!
   imageUrl: String
   published: Boolean!
   createdAt: DateTime
@@ -105,6 +111,8 @@ input ProductUpdateInput {
   id: String
   title: String
   content: String
+  category: String
+  price: Float
   imageUrl: String
   published: Boolean
   createdAt: DateTime

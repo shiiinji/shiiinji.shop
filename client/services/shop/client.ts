@@ -60,11 +60,13 @@ export type MutationUpdateShopArgs = {
 
 export type Product = {
   __typename?: 'Product';
+  category?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
   /** Identifies the date and time when the object was created. */
   createdAt: Scalars['DateTime'];
   id: Scalars['ID'];
   imageUrl?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Float']>;
   published?: Maybe<Scalars['Boolean']>;
   shopId?: Maybe<Scalars['String']>;
   title: Scalars['String'];
@@ -73,10 +75,12 @@ export type Product = {
 };
 
 export type ProductCreateInput = {
+  category?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
+  price: Scalars['Float'];
   published: Scalars['Boolean'];
   shopId: Scalars['String'];
   title: Scalars['String'];
@@ -84,10 +88,12 @@ export type ProductCreateInput = {
 };
 
 export type ProductUpdateInput = {
+  category?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
   imageUrl?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Float']>;
   published?: Maybe<Scalars['Boolean']>;
   shopId?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
@@ -99,9 +105,11 @@ export type ProductWhereUniqueInput = {
 };
 
 export type ProductsWhereInput = {
+  category?: Maybe<Scalars['String']>;
   content?: Maybe<Scalars['String']>;
   createdAt?: Maybe<Scalars['DateTime']>;
   id?: Maybe<Scalars['String']>;
+  price?: Maybe<Scalars['Float']>;
   published?: Maybe<Scalars['Boolean']>;
   shopId?: Maybe<Scalars['String']>;
   title?: Maybe<Scalars['String']>;
@@ -189,20 +197,22 @@ export type ShopWhereUniqueInput = {
   id: Scalars['String'];
 };
 
-export type ProductFragment = { __typename?: 'Product', id: string, title: string, content?: string | null | undefined, imageUrl?: string | null | undefined, published?: boolean | null | undefined, shopId?: string | null | undefined, createdAt: any, updatedAt: any };
+export type ProductFragment = { __typename?: 'Product', id: string, title: string, content?: string | null | undefined, category?: string | null | undefined, price?: number | null | undefined, imageUrl?: string | null | undefined, published?: boolean | null | undefined, shopId?: string | null | undefined, createdAt: any, updatedAt: any };
 
 export type GetProductsQueryVariables = Exact<{
   args: ProductsWhereParamsInput;
 }>;
 
 
-export type GetProductsQuery = { __typename?: 'Query', products: Array<{ __typename?: 'Product', id: string, title: string, content?: string | null | undefined, imageUrl?: string | null | undefined, published?: boolean | null | undefined, shopId?: string | null | undefined, createdAt: any, updatedAt: any }> };
+export type GetProductsQuery = { __typename?: 'Query', products: Array<{ __typename?: 'Product', id: string, title: string, content?: string | null | undefined, category?: string | null | undefined, price?: number | null | undefined, imageUrl?: string | null | undefined, published?: boolean | null | undefined, shopId?: string | null | undefined, createdAt: any, updatedAt: any }> };
 
 export const ProductFragmentDoc = gql`
     fragment Product on Product {
   id
   title
   content
+  category
+  price
   imageUrl
   published
   shopId

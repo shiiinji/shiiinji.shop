@@ -14,9 +14,6 @@ type Props = {
   product: Product
 }
 
-const IMAGE =
-  'https://images.unsplash.com/photo-1518051870910-a46e30d9db16?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=1350&q=80'
-
 export function ProductCard(props: Props) {
   return (
     <Center py={12}>
@@ -44,7 +41,7 @@ export function ProductCard(props: Props) {
             pos: 'absolute',
             top: 5,
             left: 0,
-            backgroundImage: `url(${IMAGE})`,
+            backgroundImage: `url(${props.product.imageUrl})`,
             filter: 'blur(15px)',
             zIndex: -1,
           }}
@@ -59,12 +56,12 @@ export function ProductCard(props: Props) {
             height={230}
             width={282}
             objectFit={'cover'}
-            src={`${IMAGE}`}
+            src={`${props.product.imageUrl}`}
           />
         </Box>
         <Stack pt={10} align={'center'}>
-          <Text color={'gray.500'} fontSize={'sm'} textTransform={'uppercase'}>
-            Brand
+          <Text color={'gray.400'} fontSize={'sm'} textTransform={'uppercase'}>
+            {props.product.category}
           </Text>
           <Heading
             color={'gray.300'}
@@ -75,8 +72,8 @@ export function ProductCard(props: Props) {
             {props.product.title}
           </Heading>
           <Stack direction={'row'} align={'center'}>
-            <Text fontWeight={800} fontSize={'xl'}>
-              $57
+            <Text color={'gray.300'} fontWeight={800} fontSize={'xl'}>
+              {`¥ ${props.product.price}`}
             </Text>
           </Stack>
         </Stack>

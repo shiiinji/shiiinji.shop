@@ -5,6 +5,8 @@ class ProductsWhereInput {
   id?: string;
   title?: string;
   content?: string;
+  category?: string;
+  price?: number;
   published?: boolean;
   createdAt?: Date;
   updatedAt?: Date;

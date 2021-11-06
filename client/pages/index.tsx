@@ -1,5 +1,5 @@
 import React from 'react'
-import { HStack } from '@chakra-ui/react'
+import { Container, Grid, HStack } from '@chakra-ui/react'
 import { Header } from '@components/common/Header'
 import { ProductCard } from '@components/common/ProductCard'
 import { client } from '@graphql/client'
@@ -13,11 +13,15 @@ export default function Home(props: Props) {
   return (
     <>
       <Header />
-      <HStack spacing={8}>
-        {props.products.map((product) => (
-          <ProductCard product={product} />
-        ))}
-      </HStack>
+      <Container maxW={'7xl'} p="12">
+        <HStack spacing={8}>
+          <Grid templateColumns="repeat(4, 1fr)" gap={6}>
+            {props.products.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </Grid>
+        </HStack>
+      </Container>
     </>
   )
 }
